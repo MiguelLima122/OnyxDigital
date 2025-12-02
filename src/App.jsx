@@ -12,25 +12,21 @@ import { FloatingCTA } from "./components/FloatingCTA";
 import { Footer } from "./components/Footer";
 import { SplashScreen } from "./components/SplashScreen";
 
-/**
- * Componente App: O componente raiz da aplicação.
- * Gerencia o estado do splash screen e define as rotas da aplicação usando React Router.
- */
 const AppContent = () => {
-  // Estado para controlar a animação de saída do splash screen.
+  
   const [isSplashing, setIsSplashing] = useState(true);
-  // Estado para controlar se o splash screen ainda está montado no DOM.
+  
   const [isSplashMounted, setIsSplashMounted] = useState(true);
-  // Hook para obter a localização atual e decidir se o CTA flutuante deve ser renderizado.
+
   const location = useLocation();
 
   useEffect(() => {
-    // Timer para iniciar a animação de saída do splash.
+    
     const animationTimer = setTimeout(() => {
       setIsSplashing(false);
     }, 1000);
 
-    // Timer para remover o splash screen do DOM após a animação terminar.
+    
     const unmountTimer = setTimeout(() => {
       setIsSplashMounted(false);
     }, 1500);
@@ -43,13 +39,13 @@ const AppContent = () => {
 
   return (
     <>
-      {/* A classe 'is-loading' controla as animações de entrada/saída. */}
+      
       <div className={`app ${isSplashing ? 'is-loading' : ''}`}>
-        {/* Renderiza o splash screen apenas enquanto ele estiver montado. */}
+        
         {isSplashMounted && <SplashScreen />}
         <Navbar isSplashing={isSplashing} />
         <main>
-          {/* Define as rotas da aplicação. */}
+          
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<HomePage />} />
@@ -59,7 +55,7 @@ const AppContent = () => {
             </Routes>
           </AnimatePresence>
         </main>
-        {/* O botão flutuante só é renderizado fora da página de contato. */}
+  
         {location.pathname !== "/contact" && <FloatingCTA />}
         <Footer />
       </div>
@@ -67,10 +63,6 @@ const AppContent = () => {
   );
 };
 
-/**
- * Componente App: O componente raiz da aplicação.
- * Gerencia o estado do splash screen e define as rotas da aplicação usando React Router.
- */
 export default function App() {
   return (
     <AppContent />

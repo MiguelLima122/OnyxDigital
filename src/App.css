@@ -55,7 +55,6 @@ h4 {
   max-width: 1200px;
 }
 
-/* Animações */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -212,7 +211,6 @@ h4 {
   animation-delay: 0.4s;
 }
 
-/* ================= NAVBAR (Mobile Default) ================= */
 .navbar {
   position: fixed;
   top: 0;
@@ -250,12 +248,11 @@ h4 {
   animation: pulse 1.5s infinite;
 }
 
-/* Menu Mobile - Overlay */
 .nav-menu {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 100%; /* Fullscreen no mobile */
+  width: 100%;
   height: 100vh;
   background: var(--bg-charcoal);
   display: flex;
@@ -274,7 +271,7 @@ h4 {
 .nav-link {
   color: var(--color-smoke-white);
   text-decoration: none;
-  font-size: 1.5rem; /* Maior para toque no mobile */
+  font-size: 1.5rem;
   font-weight: 500;
   transition: color 0.3s;
 }
@@ -314,10 +311,9 @@ h4 {
 .cta-button:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 25px -5px rgba(191, 0, 255, 0.7);
-  color: white; /* Garante que a cor do texto permaneça branca */
+  color: white;
 }
 
-/* ================= FLOATING CTA ================= */
 .floating-cta {
   position: fixed;
   bottom: 2rem;
@@ -347,10 +343,9 @@ h4 {
 }
 .floating-cta.visible {
   visibility: visible;
-  opacity: 1; /* Garante que o botão permaneça visível */
+  opacity: 1;
   animation: bounce-in-right 0.6s ease-out forwards, pulse-shadow 3.5s infinite ease-in-out 0.6s;
 }
-/* ================= HERO SECTION ================= */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -461,7 +456,7 @@ h4 {
 }
 
 .hero-title {
-  font-size: 3rem; /* Tamanho Mobile */
+  font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
   letter-spacing: -1px;
@@ -522,7 +517,6 @@ h4 {
   animation: scroll-anim 2.2s infinite cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
-/* ================= CONCEPT SECTION ================= */
 .concept {
   padding: 4rem 0;
   background: var(--bg-true-black);
@@ -609,7 +603,6 @@ h4 {
   padding-bottom: var(--nav-height);
 }
 
-/* Estilos para o SVG de programação */
 .svg-concept-wrapper {
   padding: 1.5rem;
   background: rgba(10, 10, 10, 0.5);
@@ -645,7 +638,6 @@ h4 {
   animation: blink-cursor 1s infinite steps(1);
 }
 
-/* Animação de digitação para as linhas */
 .programming-svg .svg-line1,
 .programming-svg .svg-line2,
 .programming-svg .svg-line3,
@@ -663,7 +655,6 @@ h4 {
 .concept-image-wrapper.animate-slide-in-left .svg-line4 { animation-delay: 2.0s; }
 .concept-image-wrapper.animate-slide-in-left .svg-line5 { animation-delay: 2.5s; }
 
-/* ================= SERVICES SECTION ================= */
 .services {
   padding: 4rem 0;
   background: var(--bg-charcoal);
@@ -676,7 +667,7 @@ h4 {
 
 .services-grid {
   display: grid;
-  grid-template-columns: 1fr; /* Mobile: 1 coluna */
+  grid-template-columns: 1fr;
   gap: 2rem;
 }
 
@@ -719,10 +710,9 @@ h4 {
   padding-bottom: var(--nav-height);
 }
 
-/* ================= CONTACT SECTION ================= */
 .contact {
   padding: 4rem 0;
-  background: var(--bg-charcoal); /* Cor base um pouco mais clara */
+  background: var(--bg-charcoal);
   position: relative;
   overflow: hidden;
 }
@@ -797,7 +787,7 @@ h4 {
   justify-self: center;
   width: 100%;
   justify-content: center;
-  min-height: 50px; /* Garante altura consistente */
+  min-height: 50px;
 }
 
 .submit-button:disabled {
@@ -899,7 +889,6 @@ h4 {
   padding-bottom: var(--nav-height);
 }
 
-/* ================= BLOG SECTION ================= */
 .blog-list {
   display: grid;
   gap: 2rem;
@@ -949,7 +938,6 @@ h4 {
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding-top: 1rem;
 }
-/* Spinner para o botão de envio */
 .spinner {
   border: 3px solid rgba(255, 255, 255, 0.3);
   border-radius: 50%;
@@ -958,7 +946,6 @@ h4 {
   height: 24px;
   animation: spin 1s ease-in-out infinite;
 }
-/* ================= FOOTER ================= */
 .footer {
   position: relative;
   padding: 4rem 0 2rem;
@@ -987,7 +974,7 @@ h4 {
   grid-template-columns: 1fr;
   gap: 3rem;
   margin-bottom: 3rem;
-  position: relative; /* Para ficar acima do ::before */
+  position: relative;
 }
 
 .footer-nav ul {
@@ -1054,9 +1041,7 @@ h4 {
   text-align: center;
 }
 
-/* ================= MEDIA QUERIES (Desktop) ================= */
 @media (min-width: 768px) {
-  /* Navbar Desktop */
   .mobile-toggle {
     display: none;
   }
@@ -1081,7 +1066,6 @@ h4 {
     font-size: 0.9rem;
   }
 
-  /* Hero Desktop */
   .hero-title {
     font-size: 5rem;
   }
@@ -1095,25 +1079,21 @@ h4 {
     width: auto;
   }
 
-  /* Concept Desktop */
   .concept-container {
     grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 5rem;
   }
 
-  /* Services Desktop */
   .services-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* Footer Desktop */
   .footer-grid {
     grid-template-columns: 2fr 1fr 1fr 1fr;
   }
 }
 
-/* ================= SPLASH SCREEN ================= */
 .splash-screen {
   position: fixed;
   top: 0;
@@ -1138,16 +1118,14 @@ h4 {
   visibility: hidden;
 }
 
-/* Wrapper para a animação de saída */
 .splash-logo-wrapper {
-  transition: transform 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045); /* easeInBack */
+  transition: transform 0.4s cubic-bezier(0.6, -0.28, 0.735, 0.045);
 }
 
 .app:not(.is-loading) .splash-logo-wrapper {
   transform: scale(0.5);
 }
 
-/* Animação de entrada do logo */
 .splash-logo {
   font-size: 2.5rem;
   display: flex;
@@ -1155,14 +1133,13 @@ h4 {
   gap: 0.75rem;
 }
 
-/* Anima cada parte do logo separadamente */
 .splash-logo > * {
-  opacity: 0; /* Começa invisível */
+  opacity: 0;
   animation-fill-mode: forwards;
 }
 
 .splash-logo .logo-icon {
-  animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; /* easeOutBack */
+  animation: scaleIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .splash-logo span:nth-of-type(1) {
@@ -1176,21 +1153,20 @@ main {
   position: relative;
 }
 
-/* ================= CUSTOM SCROLLBAR ================= */
 ::-webkit-scrollbar {
-  width: 10px; /* Largura da barra de rolagem */
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-charcoal); /* Cor do fundo (trilha) */
+  background: var(--bg-charcoal);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--color-electric-purple); /* Cor da parte móvel */
-  border-radius: 20px; /* Bordas arredondadas */
-  border: 2px solid var(--bg-charcoal); /* Cria um espaçamento ao redor */
+  background-color: var(--color-electric-purple);
+  border-radius: 20px;
+  border: 2px solid var(--bg-charcoal);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #d900ff; /* Roxo um pouco mais claro ao passar o mouse */
+  background-color: #d900ff;
 }
