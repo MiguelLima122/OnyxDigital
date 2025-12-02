@@ -51,9 +51,6 @@ export const Navbar = ({ isSplashing }) => {
         </button>
 
         <nav className={`nav-menu ${isOpen ? "active" : ""}`}>
-          <a href="#home" className="nav-link" onClick={(e) => handleScrollTo(e, "#home")}>
-            Home
-          </a>
           <a href="#concept" className="nav-link" onClick={(e) => handleScrollTo(e, "#concept")}>
             Conceito
           </a>
