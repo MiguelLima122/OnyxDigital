@@ -15,9 +15,7 @@ import { SplashScreen } from "./components/SplashScreen";
 const AppContent = () => {
   
   const [isSplashing, setIsSplashing] = useState(true);
-  
   const [isSplashMounted, setIsSplashMounted] = useState(true);
-
   const location = useLocation();
 
   useEffect(() => {
@@ -25,12 +23,9 @@ const AppContent = () => {
     const animationTimer = setTimeout(() => {
       setIsSplashing(false);
     }, 1000);
-
-    
     const unmountTimer = setTimeout(() => {
       setIsSplashMounted(false);
     }, 1500);
-
     return () => {
       clearTimeout(animationTimer);
       clearTimeout(unmountTimer);
@@ -38,14 +33,11 @@ const AppContent = () => {
   }, []);
 
   return (
-    <>
-      
+    <>   
       <div className={`app ${isSplashing ? 'is-loading' : ''}`}>
-        
         {isSplashMounted && <SplashScreen />}
         <Navbar isSplashing={isSplashing} />
         <main>
-          
           <AnimatePresence mode="wait">
             <Routes location={location} key={location.pathname}>
               <Route path="/" element={<HomePage />} />
@@ -55,7 +47,6 @@ const AppContent = () => {
             </Routes>
           </AnimatePresence>
         </main>
-  
         {location.pathname !== "/contact" && <FloatingCTA />}
         <Footer />
       </div>
