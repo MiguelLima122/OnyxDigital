@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Hexagon, Menu, X } from "lucide-react";
 
 export const Navbar = ({ isSplashing }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -20,6 +21,8 @@ export const Navbar = ({ isSplashing }) => {
     }
     setIsOpen(false);
   };
+
+  const isSimpleNav = location.pathname === "/blog" || location.pathname === "/ideias";
 
   return (
     <header
@@ -42,30 +45,34 @@ export const Navbar = ({ isSplashing }) => {
           ONIX<span className="text-highlight">DIGITAL</span>
         </Link>
 
-        <button
-          className="mobile-toggle"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label="Alternar menu"
-        >
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+        {!isSimpleNav && (
+          <>
+            <button
+              className="mobile-toggle"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Alternar menu"
+            >
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
 
-        <nav className={`nav-menu ${isOpen ? "active" : ""}`}>
-          <a href="#concept" className="nav-link" onClick={(e) => handleScrollTo(e, "#concept")}>
-            Conceito
-          </a>
-          <a href="#services" className="nav-link" onClick={(e) => handleScrollTo(e, "#services")}>
-            Serviços
-          </a>
-          <Link to="/blog" className="nav-link" onClick={() => setIsOpen(false)}>
-            Blog
-          </Link>
-          <Link to="/ideias" className="nav-link" onClick={() => setIsOpen(false)}>
-            Nossas Ideias
-          </Link>
-          
-          <a href="#" className="cta-button">Miguel e Rafael</a>
-        </nav>
+            <nav className={`nav-menu ${isOpen ? "active" : ""}`}>
+              <a href="/#concept" className="nav-link" onClick={(e) => handleScrollTo(e, "#concept")}>
+                Conceito
+              </a>
+              <a href="/#services" className="nav-link" onClick={(e) => handleScrollTo(e, "#services")}>
+                Serviços
+              </a>
+              <Link to="/blog" className="nav-link" onClick={() => setIsOpen(false)}>
+                Blog
+              </Link>
+              <Link to="/ideias" className="nav-link" onClick={() => setIsOpen(false)}>
+                Nossas Ideias
+              </Link>
+              
+              <Link to="/" className="cta-button" onClick={() => setIsOpen(false)}>Miguel e Rafael</Link>
+            </nav>
+          </>
+        )}
       </div>
     </header>
   );
