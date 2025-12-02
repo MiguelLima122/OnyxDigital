@@ -6,10 +6,6 @@ import { Services } from "./Services";
 import { Impact } from "./Impact";
 import { SectionSeparator } from "./SectionSeparator";
 
-/**
- * Componente HomePage: Agrupa todas as seções da página inicial.
- * É um componente simples que organiza o layout principal.
- */
 export const HomePage = () => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}

@@ -1,8 +1,5 @@
 import React from "react";
 
-/**
- * Componente SectionSeparator: Uma linha divisória estilizada para separar seções.
- */
 export const SectionSeparator = () => (
   <div className="container">
     <div style={{

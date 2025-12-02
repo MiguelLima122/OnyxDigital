@@ -2,10 +2,6 @@ import React from "react";
 import { useInView } from "react-intersection-observer";
 import { TrendingUp, Star, Zap } from "lucide-react";
 
-/**
- * Componente Impact: Exibe os resultados e métricas de sucesso da empresa.
- * Os cards aparecem com uma animação de fade-up quando a seção se torna visível.
- */
 export const Impact = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,

@@ -1,12 +1,7 @@
 import React from "react";
 import { Hexagon } from "lucide-react";
 
-/**
- * Componente Footer: O rodapé do site.
- * Contém links de navegação e informações de copyright.
- */
 export const Footer = () => {
-  // Função para rolar suavemente para uma seção da página.
   const handleScrollTo = (e, selector) => {
     e.preventDefault();
     const targetElement = document.querySelector(selector);

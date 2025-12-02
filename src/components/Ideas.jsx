@@ -3,11 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Lightbulb, BrainCircuit, Rocket, Code, Share2, TrendingUp } from "lucide-react";
 
-/**
- * Componente Ideas: Uma página para exibir ideias.
- */
 export const Ideas = () => {
-  // Hook para animação de entrada.
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,

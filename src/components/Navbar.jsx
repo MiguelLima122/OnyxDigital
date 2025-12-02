@@ -2,48 +2,34 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Hexagon, Menu, X } from "lucide-react";
 
-/**
- * Componente Navbar: A barra de navegação superior.
- * É fixa, muda de cor ao rolar a página e possui um menu responsivo para dispositivos móveis.
- * @param {object} props - Propriedades do componente.
- * @param {boolean} props.isSplashing - Indica se a tela de splash ainda está ativa para controlar a animação de entrada.
- */
 export const Navbar = ({ isSplashing }) => {
-  // Estado para controlar a abertura do menu mobile.
   const [isOpen, setIsOpen] = useState(false);
-  // Estado para detectar se a página foi rolada.
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    // Função para verificar a posição do scroll e atualizar o estado 'scrolled'.
     const handleScroll = () => setScrolled(window.scrollY > 20);
-    // Adiciona o listener de evento de scroll.
     window.addEventListener("scroll", handleScroll);
-    // Limpa o listener quando o componente é desmontado para evitar vazamento de memória.
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Função para rolar suavemente para uma seção da página.
   const handleScrollTo = (e, selector) => {
     e.preventDefault();
     const targetElement = document.querySelector(selector);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: "smooth" });
     }
-    // Fecha o menu mobile após o clique
     setIsOpen(false);
   };
 
-  // A classe 'animate-slide-down' é aplicada quando o splash screen termina.
   return (
     <header
       className={`navbar ${isSplashing ? "" : "animate-slide-down"}`}
       style={{
-        padding: '0.5rem 0', // Reduz o preenchimento vertical para tornar a barra mais fina
+        padding: '0.5rem 0',
         background: scrolled ? "rgba(0, 0, 0, 0.75)" : "rgba(0, 0, 0, 0.5)",
-        backdropFilter: "blur(16px)", // Aumenta a intensidade do desfoque
-        WebkitBackdropFilter: "blur(16px)", // Suporte para Safari
-        transition: "background 0.3s ease-in-out", // Adiciona transição suave
+        backdropFilter: "blur(16px)",
+        WebkitBackdropFilter: "blur(16px)",
+        transition: "background 0.3s ease-in-out",
       }}
     >
       <div className="container nav-container">
@@ -77,8 +63,11 @@ export const Navbar = ({ isSplashing }) => {
           <Link to="/blog" className="nav-link" onClick={() => setIsOpen(false)}>
             Blog
           </Link>
+          <Link to="/ideias" className="nav-link" onClick={() => setIsOpen(false)}>
+            Nossas Ideias
+          </Link>
           
-          <Link to="/contact" className="cta-button"> Miguel E Rafael </Link>
+          <a href="#" className="cta-button">Miguel e Rafael</a>
         </nav>
       </div>
     </header>

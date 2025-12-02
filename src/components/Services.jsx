@@ -2,18 +2,12 @@ import React from "react";
 import { useInView } from "react-intersection-observer";
 import { Code, Smartphone, Database } from "lucide-react";
 
-/**
- * Componente Services: Exibe os serviços oferecidos em cards de vidro.
- * Os cards aparecem com uma animação de fade-up quando a seção se torna visível.
- */
 export const Services = () => {
-  // Hook para detectar quando a seção está visível.
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  // Dados dos serviços a serem exibidos.
   const servicesData = [
     {
       icon: <Code size={24} />,
@@ -48,7 +42,6 @@ export const Services = () => {
           {servicesData.map((service, index) => (
             <article
               key={index}
-              // A classe de animação é aplicada quando 'inView' é verdadeiro.
               className={`glass-card ${inView ? "animate-fade-up" : "is-hidden"}`}
               style={{ animationDelay: `${index * 150}ms` }}
             >

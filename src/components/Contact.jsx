@@ -4,49 +4,37 @@ import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 import { ArrowRight, Lightbulb } from "lucide-react";
 
-/**
- * Componente Contact: Uma página de formulário de contato.
- * Inclui campos de formulário, validação e um estado de carregamento simulado.
- */
 export const Contact = () => {
-  // Hook para animação de entrada.
   const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
 
-  // Estado para os dados do formulário.
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  // Estado para mensagens de status do formulário (ex: "Mensagem enviada!").
   const [formStatus, setFormStatus] = useState("");
-  // Estado para controlar o spinner de carregamento durante o envio.
   const [isLoading, setIsLoading] = useState(false);
 
-  // Atualiza o estado do formulário conforme o usuário digita.
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  // Lida com o envio do formulário.
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setFormStatus(""); // Limpa status anterior
+    setFormStatus("");
     console.log("Dados do formulário:", formData);
 
-    // Simulação de envio para um backend
     setTimeout(() => {
       setFormStatus(`Obrigado, ${formData.name}! Sua mensagem foi recebida.`);
       setIsLoading(false);
-      // Limpa o formulário após o envio.
       setFormData({ name: "", email: "", message: "" });
-      setTimeout(() => setFormStatus(""), 5000); // Limpa a mensagem de status após 5s
+      setTimeout(() => setFormStatus(""), 5000);
     }, 1500);
   };
 
@@ -110,7 +98,6 @@ export const Contact = () => {
             className="cta-button submit-button"
             disabled={isLoading}
           >
-            {/* Renderização condicional: mostra o spinner ou o texto do botão. */}
             {isLoading ? (
               <div className="spinner" />
             ) : (

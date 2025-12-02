@@ -2,9 +2,6 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-/**
- * Componente Blog: Uma página para listar artigos.
- */
 export const Blog = () => {
   const { ref, inView } = useInView({
     triggerOnce: true,

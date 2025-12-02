@@ -1,9 +1,6 @@
 import React from "react";
 import { Hexagon } from "lucide-react";
 
-/**
- * Componente SplashScreen: A tela de carregamento inicial com o logo animado.
- */
 export const SplashScreen = () => (
   <div className="splash-screen">
     <div className="logo splash-logo-wrapper">

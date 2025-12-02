@@ -3,31 +3,21 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Shield, Hexagon, Zap } from "lucide-react";
 
-/**
- * Componente Concept: Seção que explica o conceito e os pilares da empresa.
- * Usa 'framer-motion' para um efeito de parallax na imagem e 'react-intersection-observer'
- * para disparar animações quando a seção entra na tela.
- */
 export const Concept = () => {
-  // Ref para a seção, usada para o parallax.
   const sectionRef = useRef(null);
-  // Hook para detectar quando a seção está visível.
   const { ref: inViewRef, inView } = useInView({
     triggerOnce: true,
     threshold: 0.2,
   });
 
-  // Hook do Framer Motion para rastrear o progresso do scroll dentro da seção.
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
   });
 
-  // Transforma o progresso do scroll em movimento vertical (parallax) para a imagem e a moldura.
   const imageY = useTransform(scrollYProgress, [0, 1], ["-20%", "20%"]);
   const neonFrameY = useTransform(scrollYProgress, [0, 1], ["-15%", "25%"]);
 
-  // Função para combinar a ref do parallax com a ref do 'inView'.
   const setRefs = (node) => {
     sectionRef.current = node;
     inViewRef(node);
@@ -37,7 +27,6 @@ export const Concept = () => {
     <section id="concept" className="concept" ref={setRefs}>
       <div className="container concept-container">
         <figure
-          // Aplica a classe de animação quando a seção está visível.
           className={`concept-image-wrapper ${
             inView ? "animate-slide-in-left" : "is-hidden"
           }`}
